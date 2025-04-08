@@ -28,7 +28,7 @@ export const sleepFor = async (time, unit) => {
 };
 
 export const moveCat = (cat, steps) => {
-    cat.style.transform += `translate(${steps * 10}px)`;
+    cat.style.transform += `translate(${steps}px)`;
 };
 
 export const turnCat = (cat, degree, dir) => {
@@ -37,7 +37,7 @@ export const turnCat = (cat, degree, dir) => {
 };
 
 export const goToXY = (cat, x, y) => {
-    cat.style.transform = `translate(${x}px, ${y}px)`;
+    cat.style.transform += ` translate(${x}px, ${y}px)`;
 };
 
 export const isGeneratorFunc = (func) => {

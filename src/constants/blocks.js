@@ -1,7 +1,7 @@
 const blocks = {
     Control: [
         {
-            text: 'Wait 1 second'
+            text: 'Wait for 1 second'
         }
     ],
     Events: [
@@ -10,20 +10,31 @@ const blocks = {
             icon: 'flag'
         }
     ],
-    Motion: [
+    Looks: [
         {
-            text: 'Move 10 steps'
+            text: 'Say hello hooman!'
         },
         {
-            text: 'Turn $ACW #icon 15 degrees',
+            text: 'Think about cat food.'
+        },
+        {
+            text: 'Ask to play?'
+        }
+    ],
+    Motion: [
+        {
+            text: 'Move 20 steps'
+        },
+        {
+            text: 'Turn $ACW #icon 30 degrees',
             icon: 'undo'
         },
         {
-            text: 'Turn $CW #icon 15 degrees',
+            text: 'Turn $CW #icon 30 degrees',
             icon: 'redo'
         },
         {
-            text: 'Go to x: ___ y: ____',
+            text: 'Go to x: 20 y: 20',
         }
     ]
 };

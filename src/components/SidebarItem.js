@@ -5,7 +5,6 @@ import Icon from './Icon';
 import { getTextIcon } from './../utils/stringFormatter';
 import BlockWrapper from './BlockWrapper';
 import PropTypes from 'prop-types';
-import { goToXY } from '../utils/utility';
 
 const SidebarItem = ({ title, data }) => {
     return (

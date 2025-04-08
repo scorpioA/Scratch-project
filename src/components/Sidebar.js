@@ -2,7 +2,6 @@ import React from 'react';
 import blocks from '../constants/blocks';
 import SidebarItem from './SidebarItem';
 import { allowDrop, deleteDiv } from '../utils/dragNDrop';
-import GoToXYStepper from '../utils/GoToXYStepper';
 
 export default function Sidebar() {
     return (
@@ -18,10 +17,6 @@ export default function Sidebar() {
                     data={blocks[blockName]}
                 />
             ))}
-
-            <h1 className="text-xl font-bold mb-4">Move Cat with Coordinates</h1>
-            <GoToXYStepper />
-
         </div>
     );
 }

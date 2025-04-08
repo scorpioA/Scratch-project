@@ -5,7 +5,7 @@ export const controlCommands = async (cmd) => {
     const splitCmd = cmd.split(' ');
     switch (splitCmd[0]) {
         case 'Wait':
-            await sleepFor(parseInt(splitCmd[1]), splitCmd[2]);
+            await sleepFor(parseInt(splitCmd[2]), splitCmd[2]);
             return;
 
         case 'Repeat':
@@ -32,14 +32,14 @@ export const motionCommands = async (cmd) => {
             return;
 
         case 'Go':
-            const xIndex = splitCmd.findIndex((word) => word.includes('x:'));
-            const yIndex = splitCmd.findIndex((word) => word.includes('y:'));
+            const xIndex = splitCmd.findIndex((s) => s.startsWith('x:'));
+            const yIndex = splitCmd.findIndex((s) => s.startsWith('y:'));
 
-            const x = Number(splitCmd[xIndex]);
-            const y = Number(splitCmd[yIndex]);
+            if (xIndex !== -1 && yIndex !== -1) {
+                const x = parseInt(splitCmd[3]);
+                const y = parseInt(splitCmd[5]);
 
-            if (!isNaN(x) && !isNaN(y)) {
-                cat.style.transform = `translate(${x}px, ${-y}px)`;
+                goToXY(cat, x, y);
             }
             return;
 
@@ -48,3 +48,33 @@ export const motionCommands = async (cmd) => {
     }
 };
 
+export const looksCommands = async (cmd) => {
+    let splitCmd = cmd.split(' ');
+
+    splitCmd = splitCmd.filter((cmdStr) => cmdStr.trim());
+
+    const toastConfig = {
+        duration: parseInt(splitCmd[3]) * 1000,
+        position: 'bottom-left',
+        icon: '🐱'
+    };
+
+    switch (splitCmd[0]) {
+        case 'Say':
+            const fullGreeting = splitCmd.slice(2).join(' ');
+            toast('Hello ' + fullGreeting, toastConfig);
+            return;
+
+        case 'Think':
+            const fullSentence = splitCmd.slice(1).join(' ');
+            toast('Thinking... ' + fullSentence, toastConfig);
+            return;
+
+        case 'Ask':
+            toast('Can you play with me?', toastConfig);
+            return;
+
+        default:
+            return;
+    }
+};

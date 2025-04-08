@@ -23,6 +23,7 @@ const commandRepeater = async (commands, gen) => {
 const commandRunner = async (cmd) => {
     if (cmd.cmdID.includes('Control')) return controlCommands(cmd.cmdText);
     if (cmd.cmdID.includes('Events')) return motionCommands(cmd.cmdText);
+    if (cmd.cmdID.includes('Looks')) return looksCommands(cmd.cmdText);
     if (cmd.cmdID.includes('Motion')) return motionCommands(cmd.cmdText);
 };
 
